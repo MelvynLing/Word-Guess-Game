@@ -1,63 +1,60 @@
 //Variables
 
 var wordChoices = ["hamilton", "toronto", "windsor", "kapuskasing", "penetanguishene", "ottawa", "sudbury","kingston"];
-var selectedWord = "";
-var lettersinWord = [];
-var numBlanks = 0;
-var blanksAndSuccesses = []; // P _ _ _ _ 
+var chosenWord = "";
+var lettersLeft = [];
+var blankSpace = 0;
+var rightWrongGuesses = []; // P _ _ _ _ 
 var wrongLetters = [];
 
-var winCount = 0;
-var lossCount = 0;
-var guessesLeft = 9;
-
-
-
-
+var winScore = 0;
+var lossScore = 0;
+var guessesLeft = 6;
 
 //functions
 function startGame () {
-    selectedWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
-    lettersinWord = selectedWord.split ("");
-    numBlanks = lettersinWord.length;
+    chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+    lettersLeft = chosenWord.split ("");
+    blankSpace = lettersLeft.length;
 
     //reset
-    guessesLeft = 9;
+    guessesLeft = 6;
     wrongLetters = [];
-    blanksAndSuccesses = [];
+    rightWrongGuesses = [];
 
     //populate blanks
-    for (var i=0;i<numBlanks; i++){
-        blanksAndSuccesses.push("_");
+    for (var i=0;i<blankSpace; i++){
+        rightWrongGuesses.push("_");
     }
 
     //change HTML to reflect game 
-    document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
+    document.getElementById("wordToGuess").innerHTML = rightWrongGuesses.join(" ");
     document.getElementById("numGuesses").innerHTML = guessesLeft;
-    document.getElementById("winCounter").innerHTML = winCount;
-    document.getElementById("lossCounter").innerHTML = lossCount;
+    document.getElementById("winCounter").innerHTML = winScore;
+    document.getElementById("lossCounter").innerHTML = lossScore;
 
 
     //console-log
-    console.log (selectedWord);
-    console.log (lettersinWord);
-    console.log (numBlanks);
-    console.log (blanksAndSuccesses);
+    console.log (chosenWord);
+    console.log (lettersLeft);
+    console.log (blankSpace);
+    console.log (rightWrongGuesses);
     }
 
+    //letters guessed
 function checkLetters(letter) {
-    var islettersinWord = false;
-    for (var i=0;i<numBlanks;i++){
-        if(selectedWord[i] == letter) {
-            islettersinWord = true;
+    var islettersLeft = false;
+    for (var i=0;i<blankSpace;i++){
+        if(chosenWord[i] == letter) {
+            islettersLeft = true;
             alert("Bingo! You got a Letter!")
         }
     }
 
-    if(islettersinWord) {
-        for (var i=0;i<numBlanks;i++){
-            if(selectedWord[i] == letter) {
-                blanksAndSuccesses[i] = letter;
+    if(islettersLeft) {
+        for (var i=0;i<blankSpace;i++){
+            if(chosenWord[i] == letter) {
+                rightWrongGuesses[i] = letter;
         }
     }
 }
@@ -67,25 +64,25 @@ else {
      guessesLeft--
     }
 
-console.log (blanksAndSuccesses);
+console.log (rightWrongGuesses);
 
 
 }
 
 function roundComplete() {
-    console.log("Win Count: " + winCount + " | Loss Count: " + lossCount + " | Guesses Left: " + guessesLeft);
+    console.log("Win Count: " + winScore + " | Loss Count: " + lossScore + " | Guesses Left: " + guessesLeft);
 
-document.getElementById("numGuesses").innerHTML = numGuesses;
-document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join(" ");
-document.getElementById("wrongGuesses").innerHTML = wrongGuesses.join(" ");
+document.getElementById("numGuesses").innerHTML = guessesLeft;
+document.getElementById("wordToGuess").innerHTML = rightWrongGuesses.join(" ");
+document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
 
 
 //won?
-if (lettersinWord.toString() == blanksAndSuccesses.toString()) {
-    winCount++;
+if (lettersLeft.toString() == rightWrongGuesses.toString()) {
+    winScore++;
     alert("You are a Winner!");
 
-    document.getElementById("winCounter").innerHTML = winCount;
+    document.getElementById("winCounter").innerHTML = winScore;
 
     startGame ();
 
@@ -94,10 +91,10 @@ if (lettersinWord.toString() == blanksAndSuccesses.toString()) {
 //lost?
 
 else if (guessesLeft == 0) {
-    lossCount++;
+    lossScore++;
     alert("You are a Loser")
 
-    document.getElementById("lossCounter").innerHTML = lossCount;
+    document.getElementById("lossCounter").innerHTML = lossScore;
 
     startGame ();
     }
