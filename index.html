@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <title>Mel's Hangman Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
 </head>
-<body style="background-image: url(./assets/ontariomap.jpg); background-size: 100%;">
+<body style="background-image: url(./assets/ontariomap.jpg); background-size: 100%; font-family: 'Overpass', sans-serif;">
 <div class="container" style="text-align: center">
-    <div class="jumbotron bg-light text-dark">
-        <h1>Mel's Hangman Game</h1>
+    <div class="jumbotron text-white" style="background-color: green; border: 5px solid white;">
+        <h1  style="font-weight: bold;">Mel's Hangman Game</h1>
         <h2>Guess the City in Ontario!</h2>
     </div>
     <div class="row">
@@ -19,12 +20,14 @@
     </div>
 
     <div class="row">
-            <div class="col-12">
+            <div class="col-1 "></div>
+            <div class="col-10">
                     <div class="card">
-                            <div class="card-header bg-dark text-white">Word to Guess:</div>
+                            <div class="card-header text-white" style="background-color: green; border: 5px solid white;">Word to Guess:</div>
                             <div class="card-body"> <h2 id="wordToGuess"></h2></div>
                             </div> 
                   </div>
+            <div class="col-1 "></div>
     </div>
 
 
@@ -40,19 +43,19 @@
                             <div class="col-2 "></div>
                                 <div class="col-3 ">
                                     <div class="card">
-                                            <div class="card-header bg-dark text-white">Wrong Guesses:</div>
+                                            <div class="card-header text-white" style="background-color: green; border: 3px solid white;">Wrong Guesses:</div>
                                             <div class="card-body"><span id="wrongGuesses"></span> </div>
                                     </div>
                                     </div>
                                     <div class="col-2 "></div>
-
-                                    <div class="col-3 ">
-                                        <div class="card">
-                                                <div class="card-header bg-dark text-white">Guesses Left:</div>
-                                                <div class="card-body"><span id="numGuesses"></span> </div>
-                                        </div> 
-                                        </div>
-                                        <div class="col-2 "></div>            
+    
+                                        <div class="col-3 ">
+                                                <div class="card">
+                                                        <div class="card-header text-white" style="background-color: green; border: 3px solid white;">Guesses Left:</div>
+                                                        <div class="card-body"><span id="numberGuesses"></span> </div>
+                                                </div>
+                                                </div>
+                                                <div class="col-2 "></div>      
     </div>
 
     <div class="row">
@@ -65,14 +68,14 @@
     <div class="row">
             <div class="col-6">
                      <div class="card">
-                             <div class="card-header bg-success text-white">Wins:</div>
+                             <div class="card-header text-white" style="background-color: blue; border: 3px solid white;">Wins:</div>
                              <div class="card-body"><span id="winCounter"></span> </div>
                              </div>
                      </div>
 
                      <div class="col-6">
                          <div class="card">
-                             <div class="card-header bg-danger text-white">Loses:</div>
+                             <div class="card-header text-white" style="background-color: red; border: 3px solid white;">Loses:</div>
                              <div class="card-body"><span id="lossCounter"></span> </div>
                              </div>
                      </div>

@@ -29,7 +29,7 @@ function startGame () {
 
     //change HTML to reflect game 
     document.getElementById("wordToGuess").innerHTML = rightWrongGuesses.join(" ");
-    document.getElementById("numGuesses").innerHTML = guessesLeft;
+    document.getElementById("numberGuesses").innerHTML = guessesLeft;
     document.getElementById("winCounter").innerHTML = winScore;
     document.getElementById("lossCounter").innerHTML = lossScore;
 
@@ -72,7 +72,7 @@ console.log (rightWrongGuesses);
 function roundComplete() {
     console.log("Win Count: " + winScore + " | Loss Count: " + lossScore + " | Guesses Left: " + guessesLeft);
 
-document.getElementById("numGuesses").innerHTML = guessesLeft;
+document.getElementById("numberGuesses").innerHTML = guessesLeft;
 document.getElementById("wordToGuess").innerHTML = rightWrongGuesses.join(" ");
 document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
 
