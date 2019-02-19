@@ -6,7 +6,6 @@ var lettersLeft = [];
 var blankSpace = 0;
 var rightWrongGuesses = []; // P _ _ _ _ 
 var wrongLetters = [];
-var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 var winScore = 0;
 var lossScore = 0;
@@ -43,12 +42,12 @@ function startGame () {
     }
 
     //letters guessed
-    function checkLetters(letter) {
-        var islettersLeft = false;
-        for (var i=0;i<blankSpace;i++){
-            if(chosenWord[i] == letter) {
-                islettersLeft = true;
-                alert("Bingo! You got a Letter!")
+function checkLetters(letter) {
+    var islettersLeft = false;
+    for (var i=0;i<blankSpace;i++){
+        if(chosenWord[i] == letter) {
+            islettersLeft = true;
+            alert("Bingo! You got a Letter!")
         }
     }
 
@@ -107,30 +106,9 @@ startGame();
     //register guesses/key presses
 document.onkeyup = function(event) {
     var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
-
-    var keyPressed = event.keyCode;
-    var keysUsed = [];
-
-    //loop through all keys in keysUsed
-    for (i=0;i<keysUsed.length; i++){
-    //check -- has key been pressed?
-
-    //check if keyPressed is in keysUsed
-
-    if (keyPressed === keysUsed[i]){
-        alert("You have guessed this letter before! Guess again!")
-        return;
-    }
-    else {
-            //add keyPressed to usedKeys
-    keyPressed.push(keysUsed);
-            
-
-    }
-    keyPressed.push(keysUsed);
-    }
-   
+    checkLetters (letterGuessed);
     roundComplete();
-    //console.log(letterGuessed);
 
-}
+    //console-log
+    console.log(letterGuessed);
+}     
