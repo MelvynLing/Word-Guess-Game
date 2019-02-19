@@ -16,7 +16,6 @@ it uses a series of JavaScript if/else conditionals to set the logic in motion f
 ![](assets/hngmn2.png)
 * when the user guesses wrong, the letter is put in the wrong guesses section, and the number of guesses decreases.
 ![](assets/hngmn3.png)
-![](assets/hngmn4.png)
 * when the user guesses right, they are alerted of a correct guess and the letter shows up in the word to guess box. when you guess the letter correct, the number of guesses left do not decrease.
 ![](assets/hngmn5.png)
 * If the user makes too many incorrect guesses, they are alerted that they have lost the game, and the loss is recored in their loses column.
